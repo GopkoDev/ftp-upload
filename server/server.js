@@ -23,7 +23,6 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     const { folderName } = req.body;
     const filename = req.file.originalname;
     const filePath = path.join(rootDir, req.file.path);
-    console.log(process.env.HOST);
     // Підключаємось до FTP-сервера
     const client = new ftp.Client();
     await client.access({
