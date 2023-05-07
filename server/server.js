@@ -44,7 +44,11 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     //cтворення посилання на файл
     const md5 = crypto
       .createHash('md5')
-      .update(process.env.SECRET_KEY + folderName + '/' + filename)
+      .update(
+        `${process.env.SECRET_KEY}${
+          folderName ? folderName + '/' : ''
+        }${filename}`
+      )
       .digest('binary');
     let base64 = Buffer.from(md5, 'binary').toString('base64');
     base64 = base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');

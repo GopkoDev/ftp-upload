@@ -56,7 +56,9 @@ const UploadVideo = () => {
       {message && (
         <>
           <p>{message.message}</p>{' '}
-          <a href={`${message.link}`}>{message.link}</a>
+          <a target="blank" href={`${message.link}`}>
+            {message.link}
+          </a>
         </>
       )}
     </div>
