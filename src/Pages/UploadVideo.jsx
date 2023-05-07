@@ -20,7 +20,7 @@ const UploadVideo = () => {
       formData.append('folderName', folderName);
 
       // Відправляємо POST-запит на сервер за допомогою fetch API
-      const response = await fetch('http://localhost:3000/upload', {
+      const response = await fetch('http://localhost:5000/upload', {
         method: 'POST',
         body: formData,
         mode: 'cors',
